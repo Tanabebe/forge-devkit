@@ -6,26 +6,26 @@
   },
   "plugins": [
     {
-      "name": "security-baseline",
-      "source": "./plugins/security-baseline",
+      "name": "fdk-security-baseline",
+      "source": "./plugins/fdk-security-baseline",
       "description": ".env アクセスブロック、破壊的操作の禁止、機密ファイル保護のセキュリティベースライン",
       "version": "1.0.0"
     },
     {
-      "name": "go-linter",
-      "source": "./plugins/go-linter",
+      "name": "fdk-go-linter",
+      "source": "./plugins/fdk-go-linter",
       "description": "Go ファイル編集後に golangci-lint を自動実行する PostToolUse フック",
       "version": "1.0.0"
     },
     {
-      "name": "frontend-linter",
-      "source": "./plugins/frontend-linter",
-      "description": "TS/TSX/JS/JSX ファイル編集後に oxlint を自動実行する PostToolUse フック",
+      "name": "fdk-frontend-linter",
+      "source": "./plugins/fdk-frontend-linter",
+      "description": "TS/TSX/JS/JSX ファイル編集後にリンターを自動実行する PostToolUse フック",
       "version": "1.0.0"
     },
     {
-      "name": "protect-bash",
-      "source": "./plugins/protect-bash",
+      "name": "fdk-protect-bash",
+      "source": "./plugins/fdk-protect-bash",
       "description": "Bash経由の機密ファイルアクセス、クラウドCLI破壊操作、Terraform/Git危険操作を包括ブロック",
       "version": "1.0.0"
     }
