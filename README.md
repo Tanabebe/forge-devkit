@@ -35,8 +35,6 @@ golangci-lint 未インストール時は警告メッセージのみ表示。
 
 ## インストール
 
-### 方法 1: マーケットプレイスから（推奨）
-
 Claude Code セッション内で以下を実行:
 
 ```
@@ -69,45 +67,13 @@ Claude Code セッション内で以下を実行:
 | **project scope** | リポジトリの共同作業者全員に適用 | チームで統一したい場合 |
 | **local scope** | 自分だけ、このリポジトリだけ | 試しに1プロジェクトで使いたい場合 |
 
-### 方法 2: ローカル開発用
-
-```bash
-claude --plugin-dir /path/to/forge-devkit/plugins/security-baseline \
-       --plugin-dir /path/to/forge-devkit/plugins/protect-bash \
-       --plugin-dir /path/to/forge-devkit/plugins/go-linter \
-       --plugin-dir /path/to/forge-devkit/plugins/frontend-linter
-```
-
 ## permissions テンプレート
 
 プラグインの仕様上、`settings.json` の permissions は自動配布できない。`templates/project-root/.claude/settings.json` にテンプレートを同梱している。
 
-security-baseline プラグインはセッション開始時に `.claude/settings.json` の状態を自動チェックし、未設定の場合は `/setup-permissions` の実行を案内する。
+security-baseline プラグインはセッション開始時に `.claude/settings.json` の状態を自動チェックし、未設定の場合は `/setup-permissions` の実行を案内する。`/setup-permissions` ではテンプレートの内容確認と適用を対話的に行える。
 
-手動で適用する場合:
-
-```bash
-cp -r templates/project-root/.claude /path/to/your-project/.claude
-```
-
-### テンプレートに含まれるもの
-
-**deny ルール（60+ パターン）:**
-- 環境変数: `.env`, `.env.*`
-- SSH / 暗号鍵: `.pem`, `.key`, `.p12`, `.pfx`, `.keystore`, `id_rsa`, `id_ed25519`
-- AWS: `.aws/credentials`, `.aws/config`
-- GCP: `credentials.json`, `serviceAccountKey*.json`
-- CloudFlare: `cloudflare.ini`, `wrangler.toml`, `.cloudflared/`
-- ホスティング: `.vercel/`, `.netlify/`, `.firebaserc`, `.railway/`, `.supabase/`, `amplify/.config/`
-- Neon / DB: `.neon`, `.pgpass`
-- Terraform: `*.tfstate`, `*.tfvars`
-- その他: `.npmrc`, `.pypirc`, `.docker/config.json`, `.kube/config`, `.netrc`
-
-**allow ルール（最小権限）:**
-- `go mod tidy`, `go build ./...`, `go vet ./...`, `go test` 系, `ls`
-
-**enabledPlugins:**
-- forge-devkit 4 プラグイン + 公式マーケットプレイスの推奨 14 プラグイン
+テンプレートには 60 以上の deny パターン（`.env`、秘密鍵、クラウド認証情報、Terraform state 等）と最小権限の allow ルールが含まれる。
 
 ### なぜプラグインとテンプレートが分かれているか
 
