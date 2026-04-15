@@ -35,8 +35,53 @@ golangci-lint 未インストール時は警告メッセージのみ表示。
 
 ## インストール
 
+### 方法 1: マーケットプレイスから（推奨）
+
+Claude Code セッション内で以下を実行:
+
+```
+/plugin marketplace add Tanabebe/forge-devkit
+```
+
+マーケットプレイス追加後、個別にインストール:
+
+```
+/plugin install security-baseline@forge-devkit
+/plugin install protect-bash@forge-devkit
+/plugin install go-linter@forge-devkit
+/plugin install frontend-linter@forge-devkit
+```
+
+### 方法 2: settings.json で宣言
+
+プロジェクトの `.claude/settings.json` に以下を追加すると、Claude Code 起動時にインストールが案内される:
+
+```json
+{
+  "enabledPlugins": {
+    "security-baseline@forge-devkit": true,
+    "protect-bash@forge-devkit": true,
+    "go-linter@forge-devkit": true,
+    "frontend-linter@forge-devkit": true
+  },
+  "extraKnownMarketplaces": {
+    "forge-devkit": {
+      "source": {
+        "source": "github",
+        "repo": "Tanabebe/forge-devkit"
+      }
+    }
+  }
+}
+```
+
+### 方法 3: ローカル開発用
+
 ```bash
-claude plugin add Tanabebe/forge-devkit
+claude --plugin-dir /path/to/forge-devkit/plugins/security-baseline \
+       --plugin-dir /path/to/forge-devkit/plugins/protect-bash \
+       --plugin-dir /path/to/forge-devkit/plugins/go-linter \
+       --plugin-dir /path/to/forge-devkit/plugins/frontend-linter
 ```
 
 ## permissions テンプレート
