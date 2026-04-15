@@ -1,6 +1,6 @@
 {
   "name": "security-baseline",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": ".env アクセスブロック、破壊的操作の禁止、機密ファイル保護。全プロジェクト共通のセキュリティベースライン。",
   "author": {
     "name": "tanabebe",
@@ -8,5 +8,6 @@
   },
   "repository": "https://github.com/Tanabebe/forge-devkit",
   "license": "MIT",
-  "keywords": ["security", "env", "destructive-ops", "baseline"]
+  "keywords": ["security", "env", "destructive-ops", "baseline"],
+  "skills": "./skills"
 }

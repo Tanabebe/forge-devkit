@@ -1,6 +1,6 @@
 {
   "name": "frontend-linter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "TS/TSX/JS/JSX ファイル編集後に oxlint を自動実行し、結果をコンテキストとして渡す PostToolUse フック。oxlint 未検出時は eslint にフォールバック。",
   "author": {
     "name": "tanabebe",
