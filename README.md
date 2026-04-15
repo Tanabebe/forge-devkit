@@ -59,6 +59,8 @@ Claude Code セッション内で以下を実行:
 /plugin install frontend-linter@forge-devkit
 ```
 
+インストール後、セッションを再起動すると permissions テンプレートの適用案内が自動表示される。すぐに設定したい場合は `/setup-permissions` を実行する。
+
 インストール時にスコープを選択する:
 
 | スコープ | 意味 | 推奨ケース |
