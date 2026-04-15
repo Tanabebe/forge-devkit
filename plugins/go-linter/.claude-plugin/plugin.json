@@ -1,6 +1,6 @@
 {
   "name": "go-linter",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Go ファイル編集後に golangci-lint を自動実行し、結果をコンテキストとして渡す PostToolUse フック。",
   "author": {
     "name": "tanabebe",

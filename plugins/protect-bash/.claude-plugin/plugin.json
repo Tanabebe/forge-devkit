@@ -1,6 +1,6 @@
 {
   "name": "protect-bash",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Bash コマンド経由での機密ファイルアクセス、破壊的操作、クラウドCLI の危険な操作、Terraform/Git の破壊的コマンドをブロックする。",
   "author": {
     "name": "tanabebe",

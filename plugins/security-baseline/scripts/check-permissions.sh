@@ -1,31 +1,36 @@
-#!/bin/bash
-# セッション開始時に .claude/settings.json の存在と deny ルールをチェックする
-# forge-devkit の permissions テンプレートが未適用なら案内メッセージを出力
+#!/usr/bin/env bash
+# セッション開始時に .claude/settings.json の状態をチェックし、
+# 未設定なら AI のコンテキストに案内指示を追加する
 
 # プロジェクトルートを探索（git root → カレントディレクトリ）
 PROJECT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
-
 SETTINGS_FILE="${PROJECT_ROOT}/.claude/settings.json"
 
-# .claude/settings.json が存在しない場合
-if [ ! -f "$SETTINGS_FILE" ]; then
-  echo "" >&2
-  echo "[forge-devkit] .claude/settings.json が見つかりません。" >&2
-  echo "[forge-devkit] /setup-permissions を実行すると、セキュリティ設定（deny ルール）の適用を案内します。" >&2
-  echo "" >&2
-  exit 1
-fi
+# 案内が必要か判定
+NEEDS_GUIDE=false
+REASON=""
 
-# settings.json は存在するが、deny ルールが含まれていない場合
-if command -v jq >/dev/null 2>&1; then
+if [ ! -f "$SETTINGS_FILE" ]; then
+  NEEDS_GUIDE=true
+  REASON=".claude/settings.json が見つかりません。"
+elif command -v jq >/dev/null 2>&1; then
   DENY_COUNT=$(jq '.permissions.deny // [] | length' "$SETTINGS_FILE" 2>/dev/null)
   if [ "$DENY_COUNT" = "0" ] || [ -z "$DENY_COUNT" ]; then
-    echo "" >&2
-    echo "[forge-devkit] .claude/settings.json に deny ルールが設定されていません。" >&2
-    echo "[forge-devkit] /setup-permissions を実行すると、セキュリティ設定の適用を案内します。" >&2
-    echo "" >&2
-    exit 1
+    NEEDS_GUIDE=true
+    REASON=".claude/settings.json に deny ルールが設定されていません。"
   fi
+fi
+
+# 案内が必要な場合のみ additionalContext を出力
+if [ "$NEEDS_GUIDE" = "true" ]; then
+  cat << EOF
+{
+  "hookSpecificOutput": {
+    "hookEventName": "SessionStart",
+    "additionalContext": "[forge-devkit] ${REASON} ユーザーへの最初の応答の冒頭で、次のメッセージを必ず表示してください: '⚙ forge-devkit の permissions テンプレートが未適用です。\`/setup-permissions\` を実行するとセキュリティ設定の適用を案内します。' この案内はセッションにつき1回だけ表示してください。"
+  }
+}
+EOF
 fi
 
 exit 0
