@@ -47,10 +47,27 @@ Claude Code セッション内で以下を実行:
 
 ```
 /plugin install security-baseline@forge-devkit
+```
+
+```
 /plugin install protect-bash@forge-devkit
+```
+
+```
 /plugin install go-linter@forge-devkit
+```
+
+```
 /plugin install frontend-linter@forge-devkit
 ```
+
+インストール時にスコープを選択する:
+
+| スコープ | 意味 | 推奨ケース |
+|---|---|---|
+| **user scope** | 自分の全プロジェクトで有効 | セキュリティ系（security-baseline, protect-bash）はこれ |
+| **project scope** | リポジトリの共同作業者全員に適用 | チームで統一したい場合 |
+| **local scope** | 自分だけ、このリポジトリだけ | 試しに1プロジェクトで使いたい場合 |
 
 ### 方法 2: ローカル開発用
 

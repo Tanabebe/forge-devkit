@@ -9,10 +9,10 @@ SETTINGS_FILE="${PROJECT_ROOT}/.claude/settings.json"
 
 # .claude/settings.json が存在しない場合
 if [ ! -f "$SETTINGS_FILE" ]; then
-  echo ""
-  echo "[forge-devkit] .claude/settings.json が見つかりません。"
-  echo "[forge-devkit] /setup-permissions を実行すると、セキュリティ設定（deny ルール）の適用を案内します。"
-  echo ""
+  echo "" >&2
+  echo "[forge-devkit] .claude/settings.json が見つかりません。" >&2
+  echo "[forge-devkit] /setup-permissions を実行すると、セキュリティ設定（deny ルール）の適用を案内します。" >&2
+  echo "" >&2
   exit 0
 fi
 
@@ -20,10 +20,10 @@ fi
 if command -v jq >/dev/null 2>&1; then
   DENY_COUNT=$(jq '.permissions.deny // [] | length' "$SETTINGS_FILE" 2>/dev/null)
   if [ "$DENY_COUNT" = "0" ] || [ -z "$DENY_COUNT" ]; then
-    echo ""
-    echo "[forge-devkit] .claude/settings.json に deny ルールが設定されていません。"
-    echo "[forge-devkit] /setup-permissions を実行すると、セキュリティ設定の適用を案内します。"
-    echo ""
+    echo "" >&2
+    echo "[forge-devkit] .claude/settings.json に deny ルールが設定されていません。" >&2
+    echo "[forge-devkit] /setup-permissions を実行すると、セキュリティ設定の適用を案内します。" >&2
+    echo "" >&2
   fi
 fi
 
