@@ -52,30 +52,7 @@ Claude Code セッション内で以下を実行:
 /plugin install frontend-linter@forge-devkit
 ```
 
-### 方法 2: settings.json で宣言
-
-プロジェクトの `.claude/settings.json` に以下を追加すると、Claude Code 起動時にインストールが案内される:
-
-```json
-{
-  "enabledPlugins": {
-    "security-baseline@forge-devkit": true,
-    "protect-bash@forge-devkit": true,
-    "go-linter@forge-devkit": true,
-    "frontend-linter@forge-devkit": true
-  },
-  "extraKnownMarketplaces": {
-    "forge-devkit": {
-      "source": {
-        "source": "github",
-        "repo": "Tanabebe/forge-devkit"
-      }
-    }
-  }
-}
-```
-
-### 方法 3: ローカル開発用
+### 方法 2: ローカル開発用
 
 ```bash
 claude --plugin-dir /path/to/forge-devkit/plugins/security-baseline \
@@ -88,7 +65,7 @@ claude --plugin-dir /path/to/forge-devkit/plugins/security-baseline \
 
 プラグインの仕様上、`settings.json` の permissions は自動配布できない。`templates/project-root/.claude/settings.json` にテンプレートを同梱している。
 
-インストール後に `/setup-permissions` を実行すると、テンプレートの内容と適用方法が案内される。
+security-baseline プラグインはセッション開始時に `.claude/settings.json` の状態を自動チェックし、未設定の場合は `/setup-permissions` の実行を案内する。
 
 手動で適用する場合:
 
