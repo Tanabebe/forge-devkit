@@ -8,6 +8,5 @@
   },
   "repository": "https://github.com/Tanabebe/forge-devkit",
   "license": "MIT",
-  "keywords": ["security", "env", "destructive-ops", "baseline"],
-  "hooks": "./hooks/hooks.json"
+  "keywords": ["security", "env", "destructive-ops", "baseline"]
 }
