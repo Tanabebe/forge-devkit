@@ -1,6 +1,6 @@
 {
   "name": "forge-devkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web開発者向けセキュリティ・品質プラグインコレクション。機密ファイル保護、破壊的操作ブロック、自動lint を提供。",
   "author": {
     "name": "tanabebe",
