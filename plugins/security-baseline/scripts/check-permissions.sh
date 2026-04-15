@@ -13,7 +13,7 @@ if [ ! -f "$SETTINGS_FILE" ]; then
   echo "[forge-devkit] .claude/settings.json が見つかりません。" >&2
   echo "[forge-devkit] /setup-permissions を実行すると、セキュリティ設定（deny ルール）の適用を案内します。" >&2
   echo "" >&2
-  exit 0
+  exit 1
 fi
 
 # settings.json は存在するが、deny ルールが含まれていない場合
@@ -24,6 +24,7 @@ if command -v jq >/dev/null 2>&1; then
     echo "[forge-devkit] .claude/settings.json に deny ルールが設定されていません。" >&2
     echo "[forge-devkit] /setup-permissions を実行すると、セキュリティ設定の適用を案内します。" >&2
     echo "" >&2
+    exit 1
   fi
 fi
 
