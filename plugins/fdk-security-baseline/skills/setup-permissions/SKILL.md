@@ -30,7 +30,7 @@ description: プロジェクトの permissions テンプレートを確認し、
 4. 最後に、ユーザーに選択肢を提示せよ:
    - **A**: テンプレートをそのままプロジェクトの `.claude/settings.json` に適用する（存在しない場合のみ）
    - **B**: 既存の settings.json にテンプレートの deny/allow を手動でマージする（diff を表示）
-   - **C**: 今は適用しない（後で `/setup-permissions` で再実行できることを伝える）
+   - **C**: 今は適用しない（後で `/fdk-security-baseline:setup-permissions` で再実行できることを伝える）
 
 ## 重要な制約
 

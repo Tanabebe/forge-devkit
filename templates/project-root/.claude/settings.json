@@ -76,10 +76,10 @@
     ]
   },
   "enabledPlugins": {
-    "security-baseline@forge-devkit": true,
-    "protect-bash@forge-devkit": true,
-    "go-linter@forge-devkit": true,
-    "frontend-linter@forge-devkit": true,
+    "fdk-security-baseline@forge-devkit": true,
+    "fdk-protect-bash@forge-devkit": true,
+    "fdk-go-linter@forge-devkit": true,
+    "fdk-frontend-linter@forge-devkit": true,
 
     "security-guidance@claude-plugins-official": true,
 

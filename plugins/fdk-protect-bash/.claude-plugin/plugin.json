@@ -1,5 +1,5 @@
 {
-  "name": "protect-bash",
+  "name": "fdk-protect-bash",
   "version": "1.0.5",
   "description": "Bash コマンド経由での機密ファイルアクセス、破壊的操作、クラウドCLI の危険な操作、Terraform/Git の破壊的コマンドをブロックする。",
   "author": {
