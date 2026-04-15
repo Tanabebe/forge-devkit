@@ -1,0 +1,13 @@
+{
+  "name": "protect-bash",
+  "version": "1.0.0",
+  "description": "Bash コマンド経由での機密ファイルアクセス、破壊的操作、クラウドCLI の危険な操作、Terraform/Git の破壊的コマンドをブロックする。",
+  "author": {
+    "name": "tanabebe",
+    "url": "https://github.com/Tanabebe"
+  },
+  "repository": "https://github.com/Tanabebe/forge-devkit",
+  "license": "MIT",
+  "keywords": ["security", "bash", "cloud", "terraform", "git", "protect"],
+  "hooks": "./hooks/hooks.json"
+}

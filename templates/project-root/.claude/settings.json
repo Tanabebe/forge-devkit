@@ -1,0 +1,115 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Edit(**/.env)",
+      "Edit(**/.env.*)",
+      "Write(**/.env)",
+      "Write(**/.env.*)",
+
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/*.p12)",
+      "Read(**/*.pfx)",
+      "Read(**/*.keystore)",
+      "Read(**/*.jks)",
+      "Edit(**/*.pem)",
+      "Edit(**/*.key)",
+      "Write(**/*.pem)",
+      "Write(**/*.key)",
+
+      "Read(**/id_rsa)",
+      "Read(**/id_rsa.pub)",
+      "Read(**/id_ed25519)",
+      "Read(**/id_ed25519.pub)",
+      "Read(**/id_ecdsa)",
+
+      "Read(**/credentials.json)",
+      "Read(**/serviceAccountKey.json)",
+      "Read(**/serviceAccountKey*.json)",
+      "Read(**/.boto)",
+      "Read(**/.gcp/credentials)",
+
+      "Read(**/.aws/credentials)",
+      "Read(**/.aws/config)",
+      "Read(**/*aws-credentials*)",
+
+      "Read(**/.cloudflared/*)",
+      "Read(**/cloudflare.ini)",
+      "Read(**/wrangler.toml)",
+
+      "Read(**/.vercel/*)",
+      "Read(**/.netlify/*)",
+      "Read(**/.firebaserc)",
+      "Read(**/firebase-debug.log)",
+      "Read(**/.railway/*)",
+      "Read(**/.supabase/*)",
+      "Read(**/amplify/.config/*)",
+
+      "Read(**/.neon)",
+      "Read(**/.pgpass)",
+
+      "Read(**/*.tfstate)",
+      "Read(**/*.tfstate.backup)",
+      "Read(**/*.tfvars)",
+      "Read(**/terraform.tfvars)",
+      "Edit(**/*.tfstate)",
+      "Edit(**/*.tfstate.backup)",
+      "Write(**/*.tfstate)",
+      "Write(**/*.tfstate.backup)",
+
+      "Read(**/.npmrc)",
+      "Read(**/.pypirc)",
+      "Read(**/.docker/config.json)",
+      "Read(**/.kube/config)",
+      "Read(**/.netrc)"
+    ],
+    "allow": [
+      "Bash(go mod tidy)",
+      "Bash(go build ./...)",
+      "Bash(go vet ./...)",
+      "Bash(go test ./...)",
+      "Bash(go test -v ./...)",
+      "Bash(go test -run *)",
+      "Bash(ls:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "security-baseline@forge-devkit": true,
+    "protect-bash@forge-devkit": true,
+    "go-linter@forge-devkit": true,
+    "frontend-linter@forge-devkit": true,
+
+    "security-guidance@claude-plugins-official": true,
+
+    "gopls-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+
+    "pr-review-toolkit@claude-plugins-official": true,
+    "coderabbit@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+
+    "context7@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+
+    "frontend-design@claude-plugins-official": true,
+
+    "commit-commands@claude-plugins-official": true,
+
+    "claude-code-setup@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+
+    "explanatory-output-style@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "forge-devkit": {
+      "source": {
+        "source": "github",
+        "repo": "Tanabebe/forge-devkit"
+      }
+    }
+  }
+}

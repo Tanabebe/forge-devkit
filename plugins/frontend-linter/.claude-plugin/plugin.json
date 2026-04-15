@@ -1,0 +1,12 @@
+{
+  "name": "frontend-linter",
+  "version": "1.0.0",
+  "description": "TS/TSX/JS/JSX ファイル編集後に oxlint を自動実行し、結果をコンテキストとして渡す PostToolUse フック。oxlint 未検出時は eslint にフォールバック。",
+  "author": {
+    "name": "tanabebe",
+    "url": "https://github.com/Tanabebe"
+  },
+  "repository": "https://github.com/Tanabebe/forge-devkit",
+  "license": "MIT",
+  "keywords": ["frontend", "typescript", "javascript", "oxlint", "eslint", "linter"]
+}
