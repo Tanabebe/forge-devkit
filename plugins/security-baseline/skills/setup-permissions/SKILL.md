@@ -1,7 +1,6 @@
 ---
 name: setup-permissions
-description: プロジェクトの permissions テンプレートを確認し、セキュリティ設定の適用を案内する
-user_invocable: true
+description: プロジェクトの permissions テンプレートを確認し、セキュリティ設定の適用を案内する。settings.json の deny ルールが未設定の場合に使う。
 ---
 
 # セットアップ: permissions テンプレート案内
@@ -13,7 +12,7 @@ user_invocable: true
 1. まず、ユーザーの現在のプロジェクトに `.claude/settings.json` が既に存在するか確認せよ。
 
 2. 次に、このプラグインに同梱されている permissions テンプレートの内容を読み取れ:
-   - パス: `${CLAUDE_PLUGIN_ROOT}/templates/project-root/.claude/settings.json`
+   - パス: `${CLAUDE_SKILL_DIR}/../../templates/project-root/.claude/settings.json`
    - Read ツールでテンプレートの内容を取得する
 
 3. ユーザーに以下を **表示** せよ（ファイルの書き換えは絶対にするな）:
