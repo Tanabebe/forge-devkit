@@ -8,6 +8,5 @@
   },
   "repository": "https://github.com/Tanabebe/forge-devkit",
   "license": "MIT",
-  "keywords": ["security", "bash", "cloud", "terraform", "git", "protect"],
-  "hooks": "./hooks/hooks.json"
+  "keywords": ["security", "bash", "cloud", "terraform", "git", "protect"]
 }
