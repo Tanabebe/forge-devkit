@@ -1,0 +1,9 @@
+{
+  "label": "postgres",
+  "description": "PostgreSQL (.pgpass, .psql_history, pg_service.conf)",
+  "deny": [
+    "Read(**/.pgpass)",
+    "Read(**/.psql_history)",
+    "Read(**/pg_service.conf)"
+  ]
+}

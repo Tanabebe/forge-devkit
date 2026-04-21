@@ -1,0 +1,9 @@
+{
+  "label": "k8s",
+  "description": "Kubernetes (.kube/config, kubeconfig)",
+  "deny": [
+    "Read(**/.kube/config)",
+    "Read(**/kubeconfig)",
+    "Read(**/kubeconfig.*)"
+  ]
+}

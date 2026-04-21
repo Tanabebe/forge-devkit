@@ -21,13 +21,18 @@ ALL_FIELDS="${PATTERN} ${PATH_FIELD} ${GLOB_FIELD}"
 # 機密ファイルパターン
 SENSITIVE_PATTERNS=(
   '\.env'
-  'credentials\.json'
   'serviceAccountKey'
-  '\.aws/'
+  'application_default_credentials\.json'
+  '\.aws/credentials'
+  '\.aws/config'
+  '\.aws/sso/cache'
+  '\.aws/cli/cache'
   '\.boto'
   'cloudflare\.ini'
-  'wrangler\.toml'
+  '\.dev\.vars'
   '\.pgpass'
+  '\.mylogin\.cnf'
+  '\.my\.cnf'
   '\.netrc'
   '\.npmrc'
   '\.pypirc'
@@ -35,6 +40,7 @@ SENSITIVE_PATTERNS=(
   '\.kube/config'
   '\.tfvars'
   '\.tfstate'
+  '\.terraformrc'
   '\.pem'
   '\.key'
   '\.p12'
@@ -44,17 +50,17 @@ SENSITIVE_PATTERNS=(
   'id_rsa'
   'id_ed25519'
   'id_ecdsa'
+  'id_dsa'
   '\.cloudflared'
-  '\.neon'
+  '\.sentryclirc'
+  'sentry\.properties'
 
-  # ホスティングサービスの内部設定（トークン・プロジェクトIDを含むもの）
-  '\.vercel/'
-  '\.netlify/'
-  '\.firebaserc'
-  'firebase-debug\.log'
-  '\.railway/'
-  '\.supabase/'
-  'amplify/\.config'
+  # CLI auth 保存先（各公式ドキュメントで確認済みのパス）
+  '\.railway/config'
+  '\.supabase/access-token'
+  '\.config/neonctl/credentials'
+  '\.config/configstore/firebase-tools'
+  '\.config/gcloud/application_default_credentials'
 )
 
 for PATTERN_CHECK in "${SENSITIVE_PATTERNS[@]}"; do

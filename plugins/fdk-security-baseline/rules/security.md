@@ -3,18 +3,19 @@
 ## 機密ファイルへのアクセス禁止
 以下のファイルは Read / Edit / Write のいずれも禁止:
 - `.env`, `.env.*`（`.env.local`, `.env.production` 等すべて）
-- `credentials.json`, `serviceAccountKey.json`
-- 秘密鍵ファイル（`.pem`, `.key`, `.p12`, `.pfx`）
-- SSH 鍵（`id_rsa`, `id_ed25519`）
+- `serviceAccountKey.json`, `application_default_credentials.json`
+- 秘密鍵ファイル（`.pem`, `.key`, `.p12`, `.pfx`, `.keystore`, `.jks`）
+- SSH 鍵（`id_rsa`, `id_ed25519`, `id_ecdsa`, `id_dsa`, FIDO 版 `id_*_sk`）
 - パッケージレジストリ認証（`.npmrc`, `.pypirc`）
+- Cloudflare 開発用シークレット（`.dev.vars`, `.dev.vars.*`）
 
 ## 機密ファイルの検索禁止
 以下のファイルは Glob / Grep による検索も禁止:
 - 上記の機密ファイルすべて
-- クラウド認証情報（`.aws/`, `.boto`, `cloudflare.ini`, `wrangler.toml`）
-- DB 認証（`.pgpass`, `.neon`）
-- インフラ設定（`.tfvars`, `.tfstate`, `.kube/config`, `.docker/config.json`）
-- ホスティングサービス（`.vercel/`, `.netlify/`, `.firebaserc`, `.railway/`, `.supabase/`, `amplify/.config/`）
+- クラウド認証情報（`.aws/credentials`, `.aws/config`, `.aws/sso/cache`, `.boto`, `cloudflare.ini`）
+- DB 認証（`.pgpass`, `.my.cnf`, `.mylogin.cnf`）
+- インフラ設定（`.tfvars`, `.tfstate`, `.terraformrc`, `.kube/config`, `.docker/config.json`）
+- CLI auth ファイル（`.railway/config`, `.supabase/access-token`, `.config/neonctl/credentials`, `.config/configstore/firebase-tools`, `.config/gcloud/application_default_credentials`）
 
 ## 破壊的操作の禁止
 以下のコマンドは Bash で実行禁止:

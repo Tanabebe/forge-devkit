@@ -1,0 +1,17 @@
+{
+  "label": "terraform",
+  "description": "Terraform (*.tfstate, *.tfvars, .terraformrc)",
+  "deny": [
+    "Read(**/*.tfstate)",
+    "Read(**/*.tfstate.backup)",
+    "Read(**/*.tfvars)",
+    "Read(**/*.tfvars.json)",
+    "Read(**/terraform.tfvars)",
+    "Read(**/.terraformrc)",
+    "Read(**/terraform.rc)",
+    "Edit(**/*.tfstate)",
+    "Edit(**/*.tfstate.backup)",
+    "Write(**/*.tfstate)",
+    "Write(**/*.tfstate.backup)"
+  ]
+}

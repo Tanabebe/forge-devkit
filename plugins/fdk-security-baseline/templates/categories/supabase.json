@@ -1,0 +1,7 @@
+{
+  "label": "supabase",
+  "description": "Supabase CLI (access-token fallback)",
+  "deny": [
+    "Read(**/.supabase/access-token)"
+  ]
+}

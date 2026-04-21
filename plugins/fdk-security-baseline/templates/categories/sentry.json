@@ -1,0 +1,8 @@
+{
+  "label": "sentry",
+  "description": "Sentry CLI (.sentryclirc, sentry.properties)",
+  "deny": [
+    "Read(**/.sentryclirc)",
+    "Read(**/sentry.properties)"
+  ]
+}

@@ -8,13 +8,16 @@ Bash ツール経由で実行されるコマンドを包括的に検査し、危
 ### 1. 機密ファイルへの間接アクセス
 cat, grep, head, tail, sed, awk, source 等で以下のファイルを読み取る操作を検出:
 - `.env`, `.env.*` — 環境変数ファイル
-- `credentials.json`, `serviceAccountKey*.json` — GCP 認証情報
-- `.aws/credentials`, `.aws/config` — AWS 認証情報
-- `cloudflare.ini`, `wrangler.toml` — CloudFlare 設定
-- `.pgpass`, `.netrc` — データベース/ネットワーク認証
+- `serviceAccountKey*.json`, `application_default_credentials.json` — GCP 認証情報
+- `.aws/credentials`, `.aws/config`, `.aws/sso/cache`, `.aws/cli/cache`, `.boto` — AWS/GCP
+- `cloudflare.ini`, `.dev.vars` — Cloudflare（`.dev.vars` が Wrangler の secrets 格納先）
+- `.pgpass`, `.my.cnf`, `.mylogin.cnf`, `.netrc` — DB / ネットワーク認証
 - `.npmrc`, `.pypirc` — パッケージレジストリ認証
 - `.docker/config.json`, `.kube/config` — コンテナ/K8s 認証
-- `*.tfvars`, `*.tfstate` — Terraform 変数/ステート
+- `*.tfvars`, `*.tfstate`, `.terraformrc` — Terraform
+- `.sentryclirc`, `sentry.properties` — Sentry CLI
+- SSH 秘密鍵（`id_rsa`, `id_ed25519`, `id_ecdsa`, `id_dsa`, FIDO 版 `id_*_sk`）
+- CLI auth（`.railway/config`, `.supabase/access-token`, `.config/neonctl/credentials`, `.config/configstore/firebase-tools`, `.config/gcloud/application_default_credentials`）
 
 find, locate, fd による機密ファイルの検索もブロック。
 

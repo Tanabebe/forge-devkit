@@ -26,14 +26,18 @@ block() {
 SENSITIVE_FILE_PATTERNS=(
   '\.env'
   '\.env\.'
-  'credentials\.json'
   'serviceAccountKey.*\.json'
+  'application_default_credentials\.json'
   '\.aws/credentials'
   '\.aws/config'
+  '\.aws/sso/cache'
+  '\.aws/cli/cache'
   '\.boto'
   'cloudflare\.ini'
-  'wrangler\.toml'
+  '\.dev\.vars'
   '\.pgpass'
+  '\.my\.cnf'
+  '\.mylogin\.cnf'
   '\.netrc'
   '\.npmrc'
   '\.pypirc'
@@ -42,6 +46,22 @@ SENSITIVE_FILE_PATTERNS=(
   '\.tfvars'
   'terraform\.tfvars'
   '\.tfstate'
+  '\.terraformrc'
+  '\.sentryclirc'
+  'sentry\.properties'
+  # SSH 秘密鍵
+  'id_rsa'
+  'id_ed25519'
+  'id_ecdsa'
+  'id_dsa'
+  'id_ed25519_sk'
+  'id_ecdsa_sk'
+  # CLI auth 保存先（各公式ドキュメントで確認済みのパス）
+  '\.railway/config'
+  '\.supabase/access-token'
+  '\.config/neonctl/credentials'
+  '\.config/configstore/firebase-tools'
+  '\.config/gcloud/application_default_credentials'
 )
 
 # ファイル内容を読み取るコマンド群

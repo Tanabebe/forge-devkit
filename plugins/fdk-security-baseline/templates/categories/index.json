@@ -1,0 +1,106 @@
+{
+  "aws": {
+    "description": "AWS クレデンシャル (.aws/credentials, .aws/config, SSO/CLI cache)",
+    "deny": [
+      "Read(**/.aws/credentials)",
+      "Read(**/.aws/config)",
+      "Read(**/.aws/sso/cache/*)",
+      "Read(**/.aws/cli/cache/*)",
+      "Read(**/*aws-credentials*)"
+    ]
+  },
+  "gcp": {
+    "description": "Google Cloud (ADC, serviceAccountKey, .boto)",
+    "deny": [
+      "Read(**/.config/gcloud/application_default_credentials.json)",
+      "Read(**/serviceAccountKey.json)",
+      "Read(**/serviceAccountKey*.json)",
+      "Read(**/.boto)"
+    ]
+  },
+  "mysql": {
+    "description": "MySQL (.my.cnf, .mylogin.cnf, .mysql_history)",
+    "deny": [
+      "Read(**/.my.cnf)",
+      "Read(**/.mylogin.cnf)",
+      "Read(**/.mysql_history)"
+    ]
+  },
+  "postgres": {
+    "description": "PostgreSQL (.pgpass, .psql_history, pg_service.conf)",
+    "deny": [
+      "Read(**/.pgpass)",
+      "Read(**/.psql_history)",
+      "Read(**/pg_service.conf)"
+    ]
+  },
+  "k8s": {
+    "description": "Kubernetes (.kube/config, kubeconfig)",
+    "deny": [
+      "Read(**/.kube/config)",
+      "Read(**/kubeconfig)",
+      "Read(**/kubeconfig.*)"
+    ]
+  },
+  "sentry": {
+    "description": "Sentry CLI (.sentryclirc, sentry.properties)",
+    "deny": [
+      "Read(**/.sentryclirc)",
+      "Read(**/sentry.properties)"
+    ]
+  },
+  "cloudflare": {
+    "description": "Cloudflare (.cloudflared/*, cloudflare.ini, .dev.vars)",
+    "deny": [
+      "Read(**/.cloudflared/*)",
+      "Read(**/cloudflare.ini)",
+      "Read(**/.dev.vars)",
+      "Read(**/.dev.vars.*)",
+      "Edit(**/.dev.vars)",
+      "Edit(**/.dev.vars.*)",
+      "Write(**/.dev.vars)",
+      "Write(**/.dev.vars.*)"
+    ]
+  },
+  "firebase": {
+    "description": "Firebase CLI auth (configstore/firebase-tools.json)",
+    "deny": [
+      "Read(**/.config/configstore/firebase-tools.json)"
+    ]
+  },
+  "railway": {
+    "description": "Railway CLI (.railway/config.json)",
+    "deny": [
+      "Read(**/.railway/config.json)",
+      "Read(**/.railway/config-*.json)"
+    ]
+  },
+  "supabase": {
+    "description": "Supabase CLI (access-token fallback)",
+    "deny": [
+      "Read(**/.supabase/access-token)"
+    ]
+  },
+  "neon": {
+    "description": "Neon CLI (.config/neonctl/credentials.json)",
+    "deny": [
+      "Read(**/.config/neonctl/credentials.json)"
+    ]
+  },
+  "terraform": {
+    "description": "Terraform (*.tfstate, *.tfvars, .terraformrc)",
+    "deny": [
+      "Read(**/*.tfstate)",
+      "Read(**/*.tfstate.backup)",
+      "Read(**/*.tfvars)",
+      "Read(**/*.tfvars.json)",
+      "Read(**/terraform.tfvars)",
+      "Read(**/.terraformrc)",
+      "Read(**/terraform.rc)",
+      "Edit(**/*.tfstate)",
+      "Edit(**/*.tfstate.backup)",
+      "Write(**/*.tfstate)",
+      "Write(**/*.tfstate.backup)"
+    ]
+  }
+}

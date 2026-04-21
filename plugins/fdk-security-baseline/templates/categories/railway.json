@@ -1,0 +1,8 @@
+{
+  "label": "railway",
+  "description": "Railway CLI (.railway/config.json)",
+  "deny": [
+    "Read(**/.railway/config.json)",
+    "Read(**/.railway/config-*.json)"
+  ]
+}

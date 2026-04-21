@@ -1,0 +1,11 @@
+{
+  "label": "aws",
+  "description": "AWS クレデンシャル (.aws/credentials, .aws/config, SSO/CLI cache)",
+  "deny": [
+    "Read(**/.aws/credentials)",
+    "Read(**/.aws/config)",
+    "Read(**/.aws/sso/cache/*)",
+    "Read(**/.aws/cli/cache/*)",
+    "Read(**/*aws-credentials*)"
+  ]
+}
