@@ -1,0 +1,7 @@
+{
+  "label": "firebase",
+  "description": "Firebase CLI auth (configstore/firebase-tools.json)",
+  "deny": [
+    "Read(**/.config/configstore/firebase-tools.json)"
+  ]
+}

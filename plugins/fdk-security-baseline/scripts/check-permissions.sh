@@ -27,7 +27,7 @@ if [ "$NEEDS_GUIDE" = "true" ]; then
 {
   "hookSpecificOutput": {
     "hookEventName": "SessionStart",
-    "additionalContext": "[forge-devkit] ${REASON} ユーザーへの最初の応答の冒頭で、次のメッセージを必ず表示してください: '⚙ forge-devkit の permissions テンプレートが未適用です。\`/fdk-security-baseline:setup-permissions\` を実行するとセキュリティ設定の適用を案内します。' この案内はセッションにつき1回だけ表示してください。"
+    "additionalContext": "[forge-devkit] ${REASON} ユーザーへの最初の応答の冒頭で、次のメッセージを必ず表示してください: '⚙ forge-devkit の permissions テンプレートが未適用です。\`/fdk-security-baseline:setup\` を実行するとセキュリティ設定の適用を案内します。' この案内はセッションにつき1回だけ表示してください。"
   }
 }
 EOF

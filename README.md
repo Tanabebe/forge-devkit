@@ -59,7 +59,7 @@ Claude Code セッション内で以下を実行:
 /plugin install fdk-frontend-linter@forge-devkit
 ```
 
-インストール後、セッションを再起動すると permissions テンプレートの適用案内が自動表示される。すぐに設定したい場合は `/fdk-security-baseline:setup-permissions` を実行する。
+インストール後、セッションを再起動すると permissions テンプレートの適用案内が自動表示される。すぐに設定したい場合は `/fdk-security-baseline:setup` を実行する。
 
 インストール時にスコープを選択する:
 
@@ -71,11 +71,9 @@ Claude Code セッション内で以下を実行:
 
 ## permissions テンプレート
 
-プラグインの仕様上、`settings.json` の permissions は自動配布できない。`templates/project-root/.claude/settings.json` にテンプレートを同梱している。
+プラグインの仕様上、`settings.json` の permissions は自動配布できない。`/fdk-security-baseline:setup` を実行すると対話型ウィザードが起動し、プロジェクトに必要な deny ルールだけを選択して `settings.json` を生成できる。
 
-fdk-security-baseline プラグインはセッション開始時に `.claude/settings.json` の状態を自動チェックし、未設定の場合は `/fdk-security-baseline:setup-permissions` の実行を案内する。`/fdk-security-baseline:setup-permissions` ではテンプレートの内容確認と適用を対話的に行える。
-
-テンプレートには 60 以上の deny パターン（`.env`、秘密鍵、クラウド認証情報、Terraform state 等）と最小権限の allow ルールが含まれる。
+deny ルールのテンプレートは `plugins/fdk-security-baseline/templates/permissions/` にサービス別の JSON ファイルとして分離されている。`.env`・証明書・SSH鍵などの基本的な機密ファイルは `base.json` としてデフォルトで適用され、AWS・GCP・Terraform 等のサービス固有ルールは質問に応じて選択的にマージされる。
 
 ### なぜプラグインとテンプレートが分かれているか
 

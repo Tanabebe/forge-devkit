@@ -1,0 +1,7 @@
+{
+  "label": "neon",
+  "description": "Neon CLI (.config/neonctl/credentials.json)",
+  "deny": [
+    "Read(**/.config/neonctl/credentials.json)"
+  ]
+}

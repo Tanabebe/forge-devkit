@@ -1,0 +1,16 @@
+{
+  "enabledPlugins": {
+    "fdk-security-baseline@forge-devkit": true,
+    "fdk-protect-bash@forge-devkit": true,
+    "fdk-go-linter@forge-devkit": true,
+    "fdk-frontend-linter@forge-devkit": true
+  },
+  "extraKnownMarketplaces": {
+    "forge-devkit": {
+      "source": {
+        "source": "github",
+        "repo": "Tanabebe/forge-devkit"
+      }
+    }
+  }
+}

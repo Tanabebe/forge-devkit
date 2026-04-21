@@ -1,0 +1,9 @@
+{
+  "label": "mysql",
+  "description": "MySQL (.my.cnf, .mylogin.cnf, .mysql_history)",
+  "deny": [
+    "Read(**/.my.cnf)",
+    "Read(**/.mylogin.cnf)",
+    "Read(**/.mysql_history)"
+  ]
+}

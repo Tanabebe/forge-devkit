@@ -1,0 +1,14 @@
+{
+  "label": "cloudflare",
+  "description": "Cloudflare (.cloudflared/*, cloudflare.ini, .dev.vars)",
+  "deny": [
+    "Read(**/.cloudflared/*)",
+    "Read(**/cloudflare.ini)",
+    "Read(**/.dev.vars)",
+    "Read(**/.dev.vars.*)",
+    "Edit(**/.dev.vars)",
+    "Edit(**/.dev.vars.*)",
+    "Write(**/.dev.vars)",
+    "Write(**/.dev.vars.*)"
+  ]
+}

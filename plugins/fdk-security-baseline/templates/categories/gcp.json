@@ -1,0 +1,10 @@
+{
+  "label": "gcp",
+  "description": "Google Cloud (ADC, serviceAccountKey, .boto)",
+  "deny": [
+    "Read(**/.config/gcloud/application_default_credentials.json)",
+    "Read(**/serviceAccountKey.json)",
+    "Read(**/serviceAccountKey*.json)",
+    "Read(**/.boto)"
+  ]
+}
